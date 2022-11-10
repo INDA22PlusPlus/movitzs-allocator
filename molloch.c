@@ -108,8 +108,9 @@ struct head* find(int index) {
             break;
         }
     }
-
-    assert(flh != NULL); // OOM i guess
+    if (flh == NULL) {
+        flh = new();
+    }
 
     remove_from_flist(flh);
 
@@ -147,7 +148,7 @@ void sacrifice(void* ptr) {
         struct head *bud = buddy(curr);
         remove_from_flist(curr);
 
-        if (curr->level >= LEVELS - 1) {
+        if (curr->level == LEVELS - 1) {
             break;
         }
 

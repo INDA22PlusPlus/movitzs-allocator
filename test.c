@@ -9,7 +9,7 @@ int main() {
     void* x;
 
 
-    for (int i = 0; i < 128; i++) {
+    for (int i = 0; i < 128 + 64; i++) {
         x = molloch(0x1);
         printf("%d\n", i);
     }
